@@ -12,8 +12,8 @@ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError, {
             enableHighAccuracy: true,
-            timeout: 20000, // tiempo de espera aumentado para mayor precisión
-            maximumAge: 0 // asegurando que no se use una ubicación en caché
+            timeout: 20000,
+            maximumAge: 0
         });
     } else {
         displayMessage("Geolocation is not supported by this browser.");
@@ -26,7 +26,6 @@ function showPosition(position) {
         lng: position.coords.longitude
     };
 
-    // Actualizar los campos de texto con las coordenadas
     document.getElementById('latitude').value = pos.lat;
     document.getElementById('longitude').value = pos.lng;
 

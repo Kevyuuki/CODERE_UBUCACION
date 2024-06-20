@@ -8,22 +8,26 @@
     <title>Obtener Ubicación en Vivo</title>
 </head>
 <body>
-    <h1>Ubicación en Vivo</h1>
-    <div class="coordinates">
-        <div class="coordinate-input">
-            <label for="latitude">Latitud:</label>
-            <div></div>
-            <input type="text" id="latitude">
+    <div class="container">
+        <h1>Ubicación en Vivo</h1>
+        <div class="controls">
+            <div class="coordinate-input">
+                <label for="latitude">Latitud:</label>
+                <input type="text" id="latitude">
+            </div>
+            <div class="coordinate-input">
+                <label for="longitude">Longitud:</label>
+                <input type="text" id="longitude">
+            </div>
+            <div class="buttons">
+                <button onclick="getLocation()">Obtener Ubicación Actual</button>
+                <button onclick="setLocation()">Establecer Ubicación</button>
+            </div>
         </div>
-        <div class="coordinate-input">
-            <label for="longitude">Longitud:</label>
-            <input type="text" id="longitude">
-        </div>
-        <button onclick="getLocation()">Obtener Ubicación Actual</button>
-        <button onclick="setLocation()">Establecer Ubicación</button>
+        <div id="map"></div>
+        <div id="message"></div>
     </div>
-    <div id="map"></div>
     <script src="ubicacion.js"></script>
-    <script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAn0L3wOZQc_q9sXTWOLDK0hkNj-DyFXPc&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAn0L3wOZQc_q9sXTWOLDK0hkNj-DyFXPc&callback=initMap"></script>
 </body>
 </html>
