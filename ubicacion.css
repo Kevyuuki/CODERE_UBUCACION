@@ -1,280 +1,108 @@
-* {
-    margin: 5px;
-    padding: 0px;
-    box-sizing: border-box;
- }
- 
- body {
-    background-color: #ffff;
-    font-family: "Yu Gothic", sans-serif;
- }
- 
- .card-container {
+body {
+    font-family: Arial, sans-serif;
     display: flex;
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 0px;
-    padding: 5px;
- }
- 
- /* Card Styles */
- .card1,
- .card2 {
-    position: relative;
-    width: 500px;
-    height: 550px;
-    background-color: #ffffff;
-    border-radius: 0.5rem;
-    overflow: hidden; /*Deja el elemento estático!*/
-    margin: 20px;
-    text-align: center;
-    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1);
- }
- 
- .card10,
- .card11,
- .card12 {
-    width: 180px;
-    height: 40px;
-    background-color: #ffffff;
-    border-radius: 0.5rem;
-    overflow: hidden; /*Deja el elemento estático!*/
-    margin: 20px;
-    text-align: center;
-    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1);
- }
- 
- .card img {
-    width: 100%;
-    height: auto;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
- }
- 
- /* Panel Styles */
- .card1 .panel,
- .card2 .panel {
-    position: relative;
-    width: 100%;
-    height: 40px;
-    background-color: #62D738;
-    left: -5px;
-    top: -5px;
-    color: white;
-    border-radius: 0.2rem;
- }
- 
- /* Typography */
- .card-container h3 {
-    position: relative;
-    font-size: 20px;
-    margin-bottom: 5px;
-    font-family: "Yu Gothic", sans-serif;
-    font-weight: 500;
-    left: 0%;
-    top: 7px;
- }
- 
- h4 {
-    font-size: 15px;
-    font-family: "Yu Gothic", sans-serif;
-    font-weight: 600;
- }
- 
- /* Button Styles */
- .card-container .btn1,
- .card-container .btn2 {
-    display: inline-block;
-    padding: 5px 16px;
-    background-color: #17CE6B; 
-    text-decoration: none;
-    border-radius: 4px;
-    margin-top: 7px;
-    color: #fff;
-    width: 160.05px;
-    font-family: "Yu Gothic", sans-serif;
-    font-size: 13px;
- }
- 
- .card-container .btn1 {
-    width: 120px;
-    border-radius: 0.4rem;
- }
- 
- /* Input Fields */
- .card-container .CampoSoporte,
- .card-container .CampoSoporte1,
- .card-container .CampoSoporte2,
- .card-container .CampoSoporte3,
- .card-container .CampoSoporteA {
-    position: relative;
-    width: 80%;
-    padding: 5px;
-    border: 1px solid #ffffff;
-    font-size: 16px;
-    box-sizing: border-box;
-    outline: #e4e4e4;
-    background-color: #f1f1f1;
-    border-radius: 0.9rem;
-    overflow: hidden;
-    text-align: center;
-    margin: 10px 0;
- }
- 
- .card-container .CampoSoporte {
-    width: 150px;
-    height: 30px;
-    font-size: 16px;
- }
- 
- .card-container .CampoSoporte1 {
-    height: 150px;
- }
- 
- .card-container .CampoSoporte2 {
-    height: 40px;
-    resize: none;
- }
- 
- .card-container .CampoSoporte3 {
-    height: 180px;
-    resize: none;
- }
- 
- .card-container .CampoSoporteA {
-    width: 160px;
-    height: 40px;
-    font-size: 14px;
-    border-radius: 0.4rem;
- }
- 
- /* PDF Display */
- .CampoPDF {
-    margin: 10px 0; /* Espaciado entre columnas */
- }
- 
- iframe {
-    width: 80%;
-    height: 350px; /* Altura del iframe para previsualizar el PDF */
-    border: 1px solid #ececec; /* Sin borde */
-    border-radius: 0.8rem;
-    background-color: #fff;
- }
- 
- .mapa{
-    position: relative;
-    top: px;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
     width: 90%;
-    height: 330px;
-    background-color: rgb(215, 215, 215);
-    left: 20px;
-    border-radius: 0.5rem;
- }
- 
- 
- /*--------------------------------------------*/
- 
- h1 {
+    max-width: 800px;
+    text-align: center;
+}
+
+h1 {
     margin-bottom: 20px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #333;
- }
- 
- .controls {
+}
+
+.controls {
     display: grid;
-    grid-template-columns: 0.5fr 0.5fr;
+    grid-template-columns: 1fr 1fr;
     gap: 5px;
-    margin-bottom: 5px;
- }
- 
- .coordinate-input {
+    margin-bottom: 10px;
+}
+
+.coordinate-input {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
- }
- 
- .coordinate-input label {
-    position: relative;
+}
+
+.coordinate-input label {
     margin-bottom: 4px;
     font-weight: bold;
-    top: -40px;
-    left: 60px;
- }
- 
- .coordinate-input input {
-    position: relative;
-    padding: 4px;
-    width: 210px;
-    box-sizing: border-box;
-    border-radius: 0.5rem;
-    border: white;
- }
- 
- .coordinate-input input {
-    position: relative;
-    top: -50px;
-    left: -12px;
+}
+
+.coordinate-input input {
     padding: 8px;
     width: 210px;
     box-sizing: border-box;
     border-radius: 0.5rem;
     border: white;
- }
- 
- 
- .buttons {
+}
+
+
+
+.coordinate-input input {
+    padding: 8px;
+    width: 210px;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    border: white;
+}
+
+
+.buttons {
     grid-column: span 2;
     display: flex;
     justify-content: space-around;
     margin-top: 5px;
- }
- 
- button {
+}
+
+button {
     position: relative;
     padding: 7px 17px;
-    font-size: 10px;
+    font-size: 16px;
     cursor: pointer;
     border: none;
     background-color: #007bff;
     color: white;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    left: -25px;
-    top: -65px;
- }
- 
- button2 {
+    left: -75px;
+}
+
+button2 {
     position: relative;
     padding: 7px 17px;
-    font-size: 10px;
-     top: -65px;
+    font-size: 16px;
     cursor: pointer;
     border: none;
     background-color: #007bff;
     color: white;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    left: -20px;
- }
- button:hover {
+    left: -135px;
+}
+button:hover {
     background-color: #0056b3;
- }
- 
- #map {
-    position: relative;
-    width: 95%;
-    height: 205px;
+}
+
+#map {
+    width: 70%;
+    height: 250px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
-    top: -70px;
-    left: 6px;
-    border-radius: 0.5rem;
- }
- 
- #message {
+}
+
+#message {
     color: red;
     margin-top: 20px;
     font-size: 14px;
     text-align: center;
- }
- 
- 
+}

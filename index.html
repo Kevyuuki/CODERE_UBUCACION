@@ -1,48 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="ubicacion.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ubicacion.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <title>Obtener Ubicación en Vivo</title>
 </head>
-
 <body>
-  <div class="card-container">
-    <div class="card1">
-      <div class="panel">
-        <h3 class="titulo">Acciones</h3>
-      </div>
-      <div class="card-container">
-        <h4> Evento
-          <select id="anotaciones" name="anotaciones" class="CampoSoporteA">
-            <option value="opcion1">Visita</option>
-            <option value="opcion2">Llamada</option>
-            <option value="opcion3">Socio Visito Oficina</option>
-            <option value="opcion4">Escalamiento de caso</option>
-          </select>
-        </h4>
-
-        <h4> Accion
-          <select id="anotaciones" name="anotaciones" class="CampoSoporteA">
-            <option value="opcion1">Consulta de saldos</option>
-            <option value="opcion2">Negociacion</option>
-            <option value="opcion3">Llamada telefonica</option>
-            <option value="opcion4">Visita domiciliar</option>
-            <option value="opcion5">Nota de cobro</option>
-            <option value="opcion5">No localizado</option>
-            <option value="opcion5">Negociacion en curso</option>
-            <option value="opcion5">Contacto sin promesa</option>
-            <option value="opcion5">Promesa de pago</option>
-          </select>
-        </h4>
-        <h4> Fecha Visita
-          <select id="anotaciones" name="anotaciones" class="CampoSoporteA">
-          </select>
-        </h4>
-      </div>
-      <div class="mapa">
+    <div class="container">
         <h1>Ubicación en Vivo</h1>
         <div class="controls">
             <div class="coordinate-input">
@@ -60,127 +26,8 @@
         </div>
         <div id="map"></div>
         <div id="message"></div>
-      </div>
     </div>
-
+    <script src="ubicacion.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAn0L3wOZQc_q9sXTWOLDK0hkNj-DyFXPc&callback=initMap"></script>
-
-   <script>
-let map, infoWindow;
-
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 14.634915, lng: -90.506882 },
-        zoom: 10
-    });
-    infoWindow = new google.maps.InfoWindow;
-}
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError, {
-            enableHighAccuracy: true,
-            timeout: 20000,
-            maximumAge: 0
-        });
-    } else {
-        displayMessage("Geolocation is not supported by this browser.");
-    }
-}
-
-function showPosition(position) {
-    const pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-    };
-
-    document.getElementById('latitude').value = pos.lat;
-    document.getElementById('longitude').value = pos.lng;
-
-    infoWindow.setPosition(pos);
-    infoWindow.setContent('Location found.');
-    infoWindow.open(map);
-    map.setCenter(pos);
-    map.setZoom(15);
-
-    new google.maps.Marker({
-        position: pos,
-        map: map
-    });
-}
-
-function showError(error) {
-    let errorMessage = '';
-
-    switch (error.code) {
-        case error.PERMISSION_DENIED:
-            errorMessage = 'User denied the request for Geolocation.';
-            break;
-        case error.POSITION_UNAVAILABLE:
-            errorMessage = 'Location information is unavailable.';
-            break;
-        case error.TIMEOUT:
-            errorMessage = 'The request to get user location timed out.';
-            break;
-        case error.UNKNOWN_ERROR:
-            errorMessage = 'An unknown error occurred.';
-            break;
-    }
-
-    displayMessage(errorMessage);
-}
-
-function setLocation() {
-    const lat = parseFloat(document.getElementById('latitude').value);
-    const lng = parseFloat(document.getElementById('longitude').value);
-
-    if (!isNaN(lat) && !isNaN(lng)) {
-        const pos = { lat: lat, lng: lng };
-
-        infoWindow.setPosition(pos);
-        infoWindow.setContent('Location set manually.');
-        infoWindow.open(map);
-        map.setCenter(pos);
-        map.setZoom(15);
-
-        new google.maps.Marker({
-            position: pos,
-            map: map
-        });
-    } else {
-        displayMessage("Please enter valid coordinates.");
-    }
-}
-
-function displayMessage(message) {
-    document.getElementById('message').innerText = message;
-}
-
- </script>
-
-    <div class="card2">
-      <div class="panel">
-        <h3 class="titulo">Pagos</h3>
-      </div>
-      <h3>Monto de promesa de pago</h3>
-      <div class="card-container">
-        <input type="text" id="promesa_pago" name="promesa_pago" class="CampoSoporte2" placeholder="Ingrese monto en Q" required>
-        <div id="error-message" style="color: red; display: none;">Por favor, ingrese un número entero válido.</div>
-
-        <h3>Lugar de pago</h3>
-        <select id="anotaciones" name="anotaciones" class="CampoSoporte2" placeholder="Ingrese el lugar donde se llevara el">
-          <option value="  "> </option>
-          <option value="opcion1">Agencia Central</option>
-          <option value="opcion2">Cajero</option>
-          <option value="opcion3">Deposito</option>
-          <option value="opcion4">Cheque</option>
-        </select>
-
-        <h3>Anotaciones</h3>
-        <textarea id="anotaciones" name="anotaciones" class="CampoSoporte3"></textarea>
-      </div>
-      <a href="" class="btn1">Guardar</a>
-    </div>
-  </div>
 </body>
 </html>
